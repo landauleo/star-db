@@ -9,11 +9,7 @@ export default class RandomPlanet extends Component {
     swapiService = new SwapiService()
     //определение стэйта
     state = {
-        id: null,
-        name: null,
-        population: null,
-        rotationPeriod: null,
-        diameter: null
+        planet: {}
     };
 
     constructor() {
@@ -21,23 +17,19 @@ export default class RandomPlanet extends Component {
         this.updatePlanet();
     }
 
+    onPlanetLoaded = (planet) => {
+        this.setState({planet})
+    }
+
     updatePlanet() {
-        const id = Math.floor(Math.random()*25 + 2);
+        const id = Math.floor(Math.random() * 25) + 2;
         this.swapiService.getPlanet(id)
-            .then((planet) => {
-                this.setState({
-                    id,
-                    name: planet.name,
-                    population: planet.population,
-                    rotationPeriod: planet.rotation_period,
-                    diameter: planet.diameter
-                });
-            });
+            .then(this.onPlanetLoaded);
     };
 
     render() {
 
-        const {id, name, population, rotationPeriod, diameter} = this.state;
+        const {planet: {id, name, population, rotationPeriod, diameter}} = this.state;
 
         return (
             <div className="p=random-planet jumbotron rounded">
@@ -48,15 +40,15 @@ export default class RandomPlanet extends Component {
                     <h4>{name}</h4>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                            <span className="term">Gender</span>
+                            <span className="term">Population </span>
                             <span>{population}</span>
                         </li>
                         <li className="list-group-item">
-                            <span className="term">Birth Year</span>
+                            <span className="term">Rotation period </span>
                             <span>{rotationPeriod}</span>
                         </li>
                         <li className="list-group-item">
-                            <span className="term">Eye Color</span>
+                            <span className="term">Diameter </span>
                             <span>{diameter}</span>
                         </li>
                     </ul>
