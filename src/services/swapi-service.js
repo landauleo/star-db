@@ -52,7 +52,7 @@ export default class SwapiService {
             id: this._extractId(planet),
             name: planet.name,
             population: planet.population,
-            rotationPeriod: planet.rotation_period,
+            rotationPeriod: planet.rotation_period,//так и надо, такое название поля
             diameter: planet.diameter
         };
     }

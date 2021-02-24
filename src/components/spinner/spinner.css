@@ -1,0 +1,111 @@
+@keyframes ldio-j95r459axjp-1 {
+    0% {
+        transform: rotate(0deg)
+    }
+    50% {
+        transform: rotate(-45deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+@keyframes ldio-j95r459axjp-2 {
+    0% {
+        transform: rotate(180deg)
+    }
+    50% {
+        transform: rotate(225deg)
+    }
+    100% {
+        transform: rotate(180deg)
+    }
+}
+
+.ldio-j95r459axjp > div:nth-child(2) {
+    transform: translate(-15px, 0);
+}
+
+.ldio-j95r459axjp > div:nth-child(2) div {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 30px;
+    border-radius: 60px 60px 0 0;
+    background: yellow;
+    animation: ldio-j95r459axjp-1 0.8474576271186441s linear infinite;
+    transform-origin: 30px 30px
+}
+
+.ldio-j95r459axjp > div:nth-child(2) div:nth-child(2) {
+    animation: ldio-j95r459axjp-2 0.8474576271186441s linear infinite
+}
+
+.ldio-j95r459axjp > div:nth-child(2) div:nth-child(3) {
+    transform: rotate(-90deg);
+    animation: none;
+}
+
+@keyframes ldio-j95r459axjp-3 {
+    0% {
+        transform: translate(95px, 0);
+        opacity: 0
+    }
+    20% {
+        opacity: 1
+    }
+    100% {
+        transform: translate(35px, 0);
+        opacity: 1
+    }
+}
+
+.ldio-j95r459axjp > div:nth-child(1) {
+    display: block;
+}
+
+.ldio-j95r459axjp > div:nth-child(1) div {
+    position: absolute;
+    top: 46px;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00bc8c;
+    animation: ldio-j95r459axjp-3 0.8474576271186441s linear infinite
+}
+
+.ldio-j95r459axjp > div:nth-child(1) div:nth-child(1) {
+    animation-delay: -0.7906s
+}
+
+.ldio-j95r459axjp > div:nth-child(1) div:nth-child(2) {
+    animation-delay: -0.3894s
+}
+
+.ldio-j95r459axjp > div:nth-child(1) div:nth-child(3) {
+    animation-delay: 0s
+}
+
+.loadingio-spinner-bean-eater-z32h1kja1ij {
+    width: 81px;
+    height: 81px;
+    position: center;
+    display: inline-block;
+    overflow: hidden;
+    background: none;
+}
+
+.ldio-j95r459axjp {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(0.81);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+}
+
+.ldio-j95r459axjp div {
+    box-sizing: content-box;
+}
