@@ -15,6 +15,14 @@ export default class RandomPlanet extends Component {
         loading: true
     };
 
+
+    constructor() {
+        super();
+        this.updatePlanet();
+        this.interval = setInterval(this.updatePlanet, 2500);
+        // clearInterval(this.interval); //после удаления компонента необходимо чистить ресурры во избежание memory leak
+    }
+
     componentDidMount() {
         this.updatePlanet();
         this.interval = setInterval(this.updatePlanet, 10000);

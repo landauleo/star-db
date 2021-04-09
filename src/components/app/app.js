@@ -9,7 +9,7 @@ import './app.css';
 
 const App = () => {
     return (
-        <div>
+        <div className="stardb-app">
             <Header />
             <RandomPlanet />
             <div className="row mb2">
