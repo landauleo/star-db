@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
@@ -15,17 +15,18 @@ export default class RandomPlanet extends Component {
         loading: true
     };
 
+    //bad practice - когда в конструкторе компонена содержится side-logic => componentDidMount
+    // constructor() {
+    //     super();
+    //     this.updatePlanet();
+    //     this.interval = setInterval(this.updatePlanet, 2500);
+    //     clearInterval(this.interval); //после удаления компонента необходимо чистить ресурры во избежание memory leak
+    // }
 
-    constructor() {
-        super();
-        this.updatePlanet();
-        this.interval = setInterval(this.updatePlanet, 2500);
-        // clearInterval(this.interval); //после удаления компонента необходимо чистить ресурры во избежание memory leak
-    }
-
-    componentDidMount() {
+    componentDidMount() { //DOM элементы уже на странице + хороршее место, чтобы вызвать подгрузку данных
         this.updatePlanet();
         this.interval = setInterval(this.updatePlanet, 10000);
+        clearInterval(this.interval); //после удаления компонента необходимо чистить ресурры во избежание memory leak
     }
 
     componentWillUnmount() {
@@ -48,7 +49,7 @@ export default class RandomPlanet extends Component {
     };
 
     updatePlanet = () => {
-        const id = Math.floor(Math.random()*17) + 2;
+        const id = Math.floor(Math.random() * 17) + 2;
         this.swapiService
             .getPlanet(id)
             .then(this.onPlanetLoaded)
@@ -56,12 +57,12 @@ export default class RandomPlanet extends Component {
     };
 
     render() {
-        const { planet, loading, error } = this.state;
+        const {planet, loading, error} = this.state;
 
         const hasData = !(loading || error);
 
         const errorMessage = error ? <ErrorIndicator/> : null;
-        const spinner = loading ? <Spinner /> : null;
+        const spinner = loading ? <Spinner/> : null;
         const content = hasData ? <PlanetView planet={planet}/> : null;
 
         return (
@@ -83,7 +84,7 @@ const PlanetView = ({planet}) => {
         <React.Fragment>
             <img className="planet-image"
                  src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
-                 alt="planet" />
+                 alt="planet"/>
             <div>
                 <h4>{name}</h4>
                 <ul className="list-group list-group-flush">
