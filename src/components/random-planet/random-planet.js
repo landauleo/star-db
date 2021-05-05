@@ -29,6 +29,7 @@ export default class RandomPlanet extends Component {
         clearInterval(this.interval); //после удаления компонента необходимо чистить ресурры во избежание memory leak
     }
 
+    //компонент будет удалён, используется для очистки ресурсов (таймеры, интервалы, запросы к серверу)
     componentWillUnmount() {
         clearInterval(this.interval);
     }
